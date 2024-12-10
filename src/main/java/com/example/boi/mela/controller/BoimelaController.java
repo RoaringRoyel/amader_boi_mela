@@ -14,16 +14,29 @@ import java.util.HashMap;
 public class BoimelaController {
     private Map<Integer, bookEntry> bookEntires = new HashMap<>();
 
-    @GetMapping
+    @GetMapping //localhost:8080/book
     public List<bookEntry> getAll(){
         return new ArrayList<>(bookEntires.values());
     }
 
-    @PostMapping
+    @PostMapping //localhost:8080/book
     public boolean createEntry(@RequestBody bookEntry bookentry){
         bookEntires.put(bookentry.getId(), bookentry);
         return true;
     }
 
+    @GetMapping("id/{myID}") //localhost:8080/book/id/111
+    public bookEntry getbookEntryById(@PathVariable Integer myID){
+        return bookEntires.get(myID);
+    }
+    @DeleteMapping ("id/{myID}") //localhost:8080/book/id/111
+    public bookEntry deletebookEntryById(@PathVariable Integer myID){
+        return bookEntires.remove(myID);
+    }
+
+    @PutMapping ("id/{myID}") //localhost:8080/book/id/111
+    public bookEntry putbookEntryById(@PathVariable Integer myID,@RequestBody bookEntry bookentry){
+        return bookEntires.put(myID, bookentry);
+    }
 
 }
