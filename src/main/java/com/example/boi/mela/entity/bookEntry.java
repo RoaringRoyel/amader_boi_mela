@@ -1,9 +1,12 @@
 package com.example.boi.mela.entity;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
-@Component
+@Document(collection = "book_entries")
 public class bookEntry {
+    @Id
     private Integer id;
 
     private String title;
@@ -32,8 +35,4 @@ public class bookEntry {
     public void setWritter(String writter) {
         this.writter = writter;
     }
-
-
-
-
 }
