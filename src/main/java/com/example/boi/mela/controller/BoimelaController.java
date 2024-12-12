@@ -2,9 +2,11 @@ package com.example.boi.mela.controller;
 
 import com.example.boi.mela.entity.bookEntry; //
 import com.example.boi.mela.service.bookCollection;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -16,12 +18,29 @@ public class BoimelaController {
     @Autowired
     private bookCollection bookcollection; //service part
 
+    @GetMapping
+    public List<bookEntry> getAll(){ // kon type a back dibe ? List<DOCUMENT>
+        return bookcollection.getAll();
+    }
+
+    @GetMapping("id/{my_id}")
+    public bookEntry findById(@PathVariable ObjectId my_id){
+        return bookcollection.findById(my_id).orElse(null);
+    }
+
+
     @PostMapping //localhost:8080/book
     public boolean createEntry(@RequestBody bookEntry bookentry){ //which table /document's data ?
+        bookentry.setDate(LocalDateTime.now()); //setting the date
         bookcollection.saveEntry(bookentry); //calling the service to entry the Data
         return true;
     }
 
+//    @PutMapping ("id/{my_ID}") //localhost:8080/book/id/111
+//    public bookEntry putbookEntryById(@PathVariable ObjectId my_ID,@RequestBody bookEntry bookentry){
+//
+//        return bookcollection.saveEntry(my_ID, bookentry);
+//    }
 
 }
 

@@ -51,9 +51,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>net.engineeringdigest</groupId>
-			<artifactId>your-library-name</artifactId>
-			<version>1.0.0</version>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
 	</dependencies>
