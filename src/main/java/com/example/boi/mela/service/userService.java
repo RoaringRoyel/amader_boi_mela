@@ -19,4 +19,11 @@ public class userService {
         return user != null && user.getPassword().equals(password);
 
     }
+
+    public boolean saveEntry(userEntry user){
+        System.out.println("Saving user: " + user);
+        userrepo.save(user);
+        System.out.println("User saved successfully.");
+        return true;
+    }
 }

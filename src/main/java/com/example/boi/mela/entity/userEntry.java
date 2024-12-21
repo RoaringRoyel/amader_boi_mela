@@ -47,7 +47,13 @@ public class userEntry {
     public void setMail(String mail) {
         this.mail = mail;
     }
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
 
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
     @Id
     private ObjectId id;
 
@@ -55,5 +61,9 @@ public class userEntry {
     private String password;
     private String role;
     private String mail;
+
+
+
+    private String confirmPassword;
 
 }
