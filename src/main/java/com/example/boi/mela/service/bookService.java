@@ -29,6 +29,13 @@ public class bookService {
     public Optional<bookEntry> findById(ObjectId obj_id){
         return bookrepo.findById(obj_id);
     }
+    public Optional<bookEntry> findByTitle(String bookname){
+        return bookrepo.findByTitle(bookname);
+    }
+    public List<bookEntry> findBooksByTitlePattern(String pattern) {
+        // Use the regex method to find books
+        return bookrepo.findByTitleRegex(pattern);
+    }
 
 
 }
