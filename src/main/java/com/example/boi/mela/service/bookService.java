@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Component
-public class bookCollection {
+public class bookService {
 
     @Autowired
     private bookRepo bookrepo; //imported from repo package

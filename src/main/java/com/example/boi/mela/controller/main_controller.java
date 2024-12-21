@@ -11,8 +11,8 @@ public class main_controller {
     public String search_book(){
         return "search_book";
     }
-    @GetMapping("/login")
-    public String showLoginPage() {
-        return "login";  // Ensure 'login.html' is in the 'templates' folder
-    }
+//    @GetMapping("/login")
+//    public String showLoginPage() {
+//        return "login";  // Ensure 'login.html' is in the 'templates' folder
+//    }
 }

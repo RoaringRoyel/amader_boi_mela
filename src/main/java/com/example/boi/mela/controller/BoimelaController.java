@@ -1,22 +1,19 @@
 package com.example.boi.mela.controller;
 
 import com.example.boi.mela.entity.bookEntry; //
-import com.example.boi.mela.service.bookCollection;
+import com.example.boi.mela.service.bookService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
 
 @RestController
 @RequestMapping("/book")
 public class BoimelaController {
     @Autowired
-    private bookCollection bookcollection; //service part
+    private bookService bookcollection; //service part
 
     @GetMapping
     public List<bookEntry> getAll(){ // kon type a back dibe ? List<DOCUMENT>
@@ -36,14 +33,13 @@ public class BoimelaController {
         return true;
     }
 
+}
+
 //    @PutMapping ("id/{my_ID}") //localhost:8080/book/id/111
 //    public bookEntry putbookEntryById(@PathVariable ObjectId my_ID,@RequestBody bookEntry bookentry){
 //
 //        return bookcollection.saveEntry(my_ID, bookentry);
 //    }
-
-}
-
 
 //    private Map<Integer, bookEntry> bookEntires = new HashMap<>();
 //
