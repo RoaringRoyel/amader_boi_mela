@@ -3,80 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card Example</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .card {
-            width: 300px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 16px;
-        }
-
-        .card-title {
-            font-size: 1.5em;
-            margin: 0 0 10px;
-            color: #333;
-        }
-
-        .card-description {
-            font-size: 1em;
-            color: #666;
-            margin: 0 0 15px;
-        }
-
-        .card-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 1em;
-            color: #fff;
-            background-color: #008080;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .card-button:hover {
-            background-color: #005f5f;
-        }
-    </style>
+    <title>Book Cards</title>
+    <link rel="stylesheet" href="/css/search.css">
 </head>
-
 <body>
-<div class="card">
-    <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Card Image" class="card-img">
-    <div class="card-content">
-        <h2 class="card-title">Card Title</h2>
-        <p class="card-description">This is a description of the card. It contains brief information about the content displayed.</p>
-        <a href="#" class="card-button">Buy Now</a>
-    </div>
+<div id="cards-container" class="cards-container">
+    <!-- Cards will be dynamically inserted here -->
 </div>
+<script src="search.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <title>Card Example</title>-->
+<!--    <style>-->
+<!--        body {-->
+<!--            font-family: Arial, sans-serif;-->
+<!--            background-color: #f4f4f9;-->
+<!--            display: flex;-->
+<!--            flex-wrap: wrap;-->
+<!--            justify-content: center;-->
+<!--            align-items: center;-->
+<!--            height: 100vh;-->
+<!--            margin: 0;-->
+<!--        }-->
+
+<!--        .card {-->
+<!--            width: 300px;-->
+<!--            border: 1px solid #ddd;-->
+<!--            border-radius: 8px;-->
+<!--            background-color: #fff;-->
+<!--            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);-->
+<!--            overflow: hidden;-->
+<!--            transition: transform 0.3s, box-shadow 0.3s;-->
+<!--            margin: 10px;-->
+<!--        }-->
+
+<!--        .card:hover {-->
+<!--            transform: translateY(-5px);-->
+<!--            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);-->
+<!--        }-->
+
+<!--        .card-img {-->
+<!--            width: 100%;-->
+<!--            height: 150px;-->
+<!--            object-fit: cover;-->
+<!--        }-->
+
+<!--        .card-content {-->
+<!--            padding: 16px;-->
+<!--        }-->
+
+<!--        .card-title {-->
+<!--            font-size: 1.5em;-->
+<!--            margin: 0 0 10px;-->
+<!--            color: #333;-->
+<!--        }-->
+
+<!--        .card-description {-->
+<!--            font-size: 1em;-->
+<!--            color: #666;-->
+<!--            margin: 0 0 15px;-->
+<!--        }-->
+
+<!--        .card-button {-->
+<!--            display: inline-block;-->
+<!--            padding: 10px 20px;-->
+<!--            font-size: 1em;-->
+<!--            color: #fff;-->
+<!--            background-color: #008080;-->
+<!--            text-decoration: none;-->
+<!--            border-radius: 4px;-->
+<!--            transition: background-color 0.3s;-->
+<!--        }-->
+
+<!--        .card-button:hover {-->
+<!--            background-color: #005f5f;-->
+<!--        }-->
+<!--    </style>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="cards-container" class="cards-container">-->
+<!--    &lt;!&ndash; Cards will be dynamically inserted here &ndash;&gt;-->
+<!--</div>-->
+<!--<script>-->
+<!--        // Function to fetch data from API-->
+<!--        async function fetchBooks() {-->
+<!--            try {-->
+<!--                // Replace with your actual API URL-->
+<!--                const response = await fetch("http://localhost:8080/search/The");-->
+<!--                const books = await response.json();-->
+
+<!--                // Render the books as cards-->
+<!--                renderBooks(books);-->
+<!--            } catch (error) {-->
+<!--                console.error("Error fetching books:", error);-->
+<!--            }-->
+<!--        }-->
+
+<!--        // Function to render books into the cards container-->
+<!--        function renderBooks(books) {-->
+<!--            const container = document.getElementById("cards-container");-->
+
+<!--            // Clear the container (if needed)-->
+<!--            container.innerHTML = "";-->
+
+<!--            // Iterate over the book data and create cards-->
+<!--            books.forEach((book) => {-->
+<!--                const card = `-->
+<!--                <div class="card">-->
+<!--                    <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"-->
+<!--                         alt="${book.title}" class="card-img">-->
+<!--                    <div class="card-content">-->
+<!--                        <h2 class="card-title">${book.title}</h2>-->
+<!--                        <p class="card-description">-->
+<!--                            <strong>Author:</strong> ${book.writter}<br>-->
+<!--                            <strong>Date:</strong> ${new Date(book.date).toLocaleString()}-->
+<!--                        </p>-->
+<!--                        <a href="#" class="card-button">Buy Now</a>-->
+<!--                    </div>-->
+<!--                </div>`;-->
+<!--                // Append the card to the container-->
+<!--                container.innerHTML += card;-->
+<!--            });-->
+<!--        }-->
+
+<!--        // Fetch and display books on page load-->
+<!--        fetchBooks();-->
+<!--    </script>-->
+<!--</body>-->
+<!--</html>-->
+
+
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html lang="en">&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta name="viewport" content="width=device-width, initial-scale=1.0">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>Card Example</title>&ndash;&gt;-->
+<!--&lt;!&ndash;    <style>&ndash;&gt;-->
+<!--&lt;!&ndash;        body {&ndash;&gt;-->
+<!--&lt;!&ndash;            font-family: Arial, sans-serif;&ndash;&gt;-->
+<!--&lt;!&ndash;            background-color: #f4f4f9;&ndash;&gt;-->
+<!--&lt;!&ndash;            display: flex;&ndash;&gt;-->
+<!--&lt;!&ndash;            justify-content: center;&ndash;&gt;-->
+<!--&lt;!&ndash;            align-items: center;&ndash;&gt;-->
+<!--&lt;!&ndash;            height: 100vh;&ndash;&gt;-->
+<!--&lt;!&ndash;            margin: 0;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+
+<!--&lt;!&ndash;        .card {&ndash;&gt;-->
+<!--&lt;!&ndash;            width: 300px;&ndash;&gt;-->
+<!--&lt;!&ndash;            border: 1px solid #ddd;&ndash;&gt;-->
+<!--&lt;!&ndash;            border-radius: 8px;&ndash;&gt;-->
+<!--&lt;!&ndash;            background-color: #fff;&ndash;&gt;-->
+<!--&lt;!&ndash;            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);&ndash;&gt;-->
+<!--&lt;!&ndash;            overflow: hidden;&ndash;&gt;-->
+<!--&lt;!&ndash;            transition: transform 0.3s, box-shadow 0.3s;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+
+<!--&lt;!&ndash;        .card:hover {&ndash;&gt;-->
+<!--&lt;!&ndash;            transform: translateY(-5px);&ndash;&gt;-->
+<!--&lt;!&ndash;            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+
+<!--&lt;!&ndash;        .card-img {&ndash;&gt;-->
+<!--&lt;!&ndash;            width: 100%;&ndash;&gt;-->
+<!--&lt;!&ndash;            height: 150px;&ndash;&gt;-->
+<!--&lt;!&ndash;            object-fit: cover;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+
+<!--&lt;!&ndash;        .card-content {&ndash;&gt;-->
+<!--&lt;!&ndash;            padding: 16px;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+
+<!--&lt;!&ndash;        .card-title {&ndash;&gt;-->
+<!--&lt;!&ndash;            font-size: 1.5em;&ndash;&gt;-->
+<!--&lt;!&ndash;            margin: 0 0 10px;&ndash;&gt;-->
+<!--&lt;!&ndash;            color: #333;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+
+<!--&lt;!&ndash;        .card-description {&ndash;&gt;-->
+<!--&lt;!&ndash;            font-size: 1em;&ndash;&gt;-->
+<!--&lt;!&ndash;            color: #666;&ndash;&gt;-->
+<!--&lt;!&ndash;            margin: 0 0 15px;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+
+<!--&lt;!&ndash;        .card-button {&ndash;&gt;-->
+<!--&lt;!&ndash;            display: inline-block;&ndash;&gt;-->
+<!--&lt;!&ndash;            padding: 10px 20px;&ndash;&gt;-->
+<!--&lt;!&ndash;            font-size: 1em;&ndash;&gt;-->
+<!--&lt;!&ndash;            color: #fff;&ndash;&gt;-->
+<!--&lt;!&ndash;            background-color: #008080;&ndash;&gt;-->
+<!--&lt;!&ndash;            text-decoration: none;&ndash;&gt;-->
+<!--&lt;!&ndash;            border-radius: 4px;&ndash;&gt;-->
+<!--&lt;!&ndash;            transition: background-color 0.3s;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+
+<!--&lt;!&ndash;        .card-button:hover {&ndash;&gt;-->
+<!--&lt;!&ndash;            background-color: #005f5f;&ndash;&gt;-->
+<!--&lt;!&ndash;        }&ndash;&gt;-->
+<!--&lt;!&ndash;    </style>&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="card">&ndash;&gt;-->
+<!--&lt;!&ndash;    <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp" alt="Card Image" class="card-img">&ndash;&gt;-->
+<!--&lt;!&ndash;    <div class="card-content">&ndash;&gt;-->
+<!--&lt;!&ndash;        <h2 class="card-title">Card Title</h2>&ndash;&gt;-->
+<!--&lt;!&ndash;        <p class="card-description">This is a description of the card. It contains brief information about the content displayed.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;        <a href="#" class="card-button">Buy Now</a>&ndash;&gt;-->
+<!--&lt;!&ndash;    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->

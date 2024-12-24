@@ -5,7 +5,6 @@ import com.example.boi.mela.service.bookService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -32,6 +31,7 @@ public class BoimelaController {
         bookcollection.saveEntry(bookentry); //calling the service to entry the Data
         return true;
     }
+
 
 }
 

@@ -20,12 +20,14 @@ public class signup_Controller {
         userEntry existingUser = userservice.findByUsername(user.getUsername());
         if (existingUser != null) {
             model.addAttribute("error", "Username already exists.");
+            //return "already exists";
             return "login"; // Redirect back to login page if username exists
         }
 
          //Check if the password and confirmation password match
         if (!user.getPassword().equals(user.getConfirmPassword())) {
             model.addAttribute("error", "Passwords do not match.");
+            //return "Password not matched";
             return "login"; // Redirect back to login page if passwords don't match
         }
 
@@ -33,6 +35,7 @@ public class signup_Controller {
         userservice.saveEntry(user);
         System.out.println(user+"Here it is saving");
         model.addAttribute("message", "Account created successfully! Please log in.");
+        //return "User added";
         return "login"; // Redirect to login page after successful signup
     }
 }

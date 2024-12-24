@@ -5,6 +5,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Collection;
+import java.util.List;
 
 @Document(collection="user_entries")
 public class userEntry {
@@ -61,6 +62,7 @@ public class userEntry {
     private String password;
     private String role;
     private String mail;
+
 
 
 

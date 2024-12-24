@@ -20,9 +20,11 @@ public class login_controller {
         userEntry loggedInUser = (userEntry) session.getAttribute("user");
         if (loggedInUser != null) {
             // If no user is found in session, redirect to login
+            //return "Not Found";
             return "redirect:/dashboard";
         }
         else {
+            //return "login sucesfull";
             return "login";  // Ensure 'login.html' is in the 'templates' folder
         }
     }
@@ -39,8 +41,10 @@ public class login_controller {
         else{
             if (userservice.validateUser(user.getUsername(), user.getPassword())) {
                 userEntry foundUser = userservice.findByUsername(user.getUsername());
+                System.out.println(user.getUsername());
                 model.addAttribute("user", foundUser);
                 session.setAttribute("user", foundUser);
+                session.setAttribute("user1", user.getUsername());
                 return "redirect:/dashboard"; // Render dashboard.html
             } else {
 
